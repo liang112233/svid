@@ -105,7 +105,7 @@ BEGIN
            END IF;
             
             --end of transaction
-           IF(clk_toggles = (cmd_width+d_width+rx_d_width-1) THEN  
+           IF(clk_toggles = (cmd_width+d_width+rx_d_width-1)) THEN  
               busy <= '0';              --clock out not busy signal
               sdio <= 'Z';              --set master data io to high impedance
               IF(rw_buffer = '0') THEN  --if transaction was a read
