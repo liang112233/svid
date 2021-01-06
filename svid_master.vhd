@@ -99,7 +99,7 @@ BEGIN
         
            --receive svid clock toggle
           IF(assert_data = '0' AND clk_toggles < last_bit_rx + 1) THEN 
-             IF(rw_buffer = '0' AND clk_toggles > cmd_width) THEN --read transaction and data part of transaction
+             IF(rw_buffer = '0' AND clk_toggles > cmd_width+d_width) THEN --read transaction and data part of transaction
                 d_buffer <= d_buffer(d_width-2 DOWNTO 0) & sdio;                 --shift in received bit
              END IF;
            END IF;
